@@ -15,6 +15,14 @@ func main() {
 	list := flag.Bool("list", false, "List all tasks")
 	complete := flag.Int("complete", 0, "Item to be completed")
 
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(),
+			"%s tool. Based on a Pragmatic Programmers book\n", os.Args[0])
+		fmt.Fprintf(flag.CommandLine.Output(), "Copyright 2020\n")
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage information:")
+		flag.PrintDefaults()
+	}
+
 	flag.Parse()
 
 	l := &todo.List{}
