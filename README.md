@@ -15,3 +15,13 @@ GOOS=windows go build
 file wc
 # wc.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
 ```
+
+## Chapter 2
+
+A ToDo list.
+
+Flag       | Action
+-----------|--------
+list       | lists all items in the task list
+complete n | completes task number n
+task text  | adds text to the task list
