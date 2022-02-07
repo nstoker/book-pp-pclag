@@ -25,6 +25,7 @@ Flag       | Action
 list       | lists all items in the task list
 complete n | completes task number n
 add text   | adds text to the task list from the command line
+del n      | deletes task number n
 
 The program will also accept arguments passed via a pipe, eg
 
