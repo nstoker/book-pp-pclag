@@ -26,6 +26,8 @@ list       | lists all items in the task list
 complete n | completes task number n
 add text   | adds text to the task list from the command line
 del n      | deletes task number n
+verbose    | produce verbose output
+outstanding| only shows outstanding items
 
 The program will also accept arguments passed via a pipe, eg
 
@@ -43,6 +45,11 @@ X 1: Piped in
   2: added from command line
 ```
 
-
 Copying the example.env to `.env` and setting the `TODO_FILENAME` will set the name the ToDo lists
 will be saved as.
+
+Exercises not completed:
+
+1. Include test cases for the verbose option
+1. Update the `getTask()` function allowing it to handle multiline input from STDIN. Each line should be a new task in the list.
+   - and associated test

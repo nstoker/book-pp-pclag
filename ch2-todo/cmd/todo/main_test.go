@@ -94,6 +94,19 @@ func TestToDoCLI(t *testing.T) {
 		}
 	})
 
+	t.Run("Hide completed tasks", func(t *testing.T) {
+		cmd := exec.Command(cmdPath, "-list", "-outstanding")
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		expected := fmt.Sprintf("  2: %s\n", task2)
+		if expected != string(out) {
+			t.Errorf("Expected %q, got %q instead\n", expected, string(out))
+		}
+	})
+
 	t.Run("Delete Task", func(t *testing.T) {
 		cmd := exec.Command(cmdPath, "-delete", "1")
 		_, err := cmd.CombinedOutput()

@@ -18,6 +18,21 @@ type item struct {
 
 type List []item
 
+var (
+	outstanding = false
+	verbosity   = false
+)
+
+// Outstanding sets the CLI to only list outstandingItems items
+func (l *List) Outstanding(outstandingItems bool) {
+	outstanding = outstandingItems
+}
+
+// Verbose sets the CLI to verbose mode
+func (l *List) Verbosity(verbose bool) {
+	verbosity = verbose
+}
+
 // Add creates a new ToDo item and appends it to the list
 func (l *List) Add(task string) {
 	t := item{
@@ -95,10 +110,20 @@ func (l *List) String() string {
 		prefix := " "
 
 		if t.Done {
+			if outstanding {
+				continue
+			}
+
 			prefix = "X"
 		}
 
-		formatted += fmt.Sprintf("%s %d: %s\n", prefix, k+1, t.Task)
+		formatted += fmt.Sprintf("%s %d: %s", prefix, k+1, t.Task)
+
+		if verbosity {
+			formatted += fmt.Sprintf("%s %s", t.CreatedAt, t.CompletedAt)
+		}
+
+		formatted += "\n"
 	}
 
 	return formatted
