@@ -25,3 +25,6 @@ Flag       | Action
 list       | lists all items in the task list
 complete n | completes task number n
 task text  | adds text to the task list
+
+Copying the example.env to `.env` and setting the `TODO_FILENAME` will set the name the ToDo lists
+will be saved as.

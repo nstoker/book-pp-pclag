@@ -8,9 +8,13 @@ import (
 	"github.com/nstoker/book-pp-pclag/ch2-todo/internal/todo"
 )
 
-const todoFileName = ".todo.json"
+var todoFileName = ".todo.json"
 
 func main() {
+	if fileName := os.Getenv("TODO_FILENAME"); fileName != "" {
+		todoFileName = fileName
+	}
+
 	task := flag.String("task", "", "Task to be included in the ToDo list")
 	list := flag.Bool("list", false, "List all tasks")
 	complete := flag.Int("complete", 0, "Item to be completed")
