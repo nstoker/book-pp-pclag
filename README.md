@@ -58,7 +58,10 @@ Exercises not completed:
 
 Converts a Markdown file to a html file. Includes a preview facility.
 
+An alternate template file added that adds a blue h1 style.
+
 Flag | Purpose
 -----|---------
 file | the name of the file to convert
 s    | skip auto preview
+t    | use a different template file
