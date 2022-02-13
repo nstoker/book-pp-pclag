@@ -53,3 +53,12 @@ Exercises not completed:
 1. Include test cases for the verbose option
 1. Update the `getTask()` function allowing it to handle multiline input from STDIN. Each line should be a new task in the list.
    - and associated test
+
+## Chapter 3 Markdown to HTML converter
+
+Converts a Markdown file to a html file. Includes a preview facility.
+
+Flag | Purpose
+-----|---------
+file | the name of the file to convert
+s    | skip auto preview
