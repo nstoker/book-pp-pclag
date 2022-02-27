@@ -24,3 +24,7 @@ func listFile(path string, out io.Writer) error {
 
 	return err
 }
+
+func delFile(path string) error {
+	return os.Remove(path)
+}

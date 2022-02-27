@@ -70,4 +70,4 @@ Exercised not done.
 
 ## Chapter 4: Navigating the File System
 
-Adds a directory walk tool.
+Adds a directory walk tool, with a delete flag.
