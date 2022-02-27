@@ -70,4 +70,12 @@ Exercised not done.
 
 ## Chapter 4: Navigating the File System
 
-Adds a directory walk tool, with a delete flag.
+Adds a directory walk tool, with a delete flag and a logging facility.
+
+It is possible to install the binary version:
+
+```bash
+go install
+type ch4-navigating
+# walk is home/ns/go/bin/ch4-navigating
+```
