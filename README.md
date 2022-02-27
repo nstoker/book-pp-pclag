@@ -72,6 +72,8 @@ Exercised not done.
 
 Adds a directory walk tool, with a delete flag and a logging facility.
 
+Can add archive files to the mix.
+
 It is possible to install the binary version:
 
 ```bash
