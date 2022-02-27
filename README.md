@@ -65,3 +65,9 @@ Flag | Purpose
 file | the name of the file to convert
 s    | skip auto preview
 t    | use a different template file
+
+Exercised not done.
+
+## Chapter 4: Navigating the File System
+
+Adds a directory walk tool.
