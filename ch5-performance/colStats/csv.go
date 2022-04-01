@@ -2,11 +2,13 @@ package main
 
 import (
 	"encoding/csv"
+	"fmt"
 	"io"
 	"strconv"
-
-	"github.com/pkg/errors"
 )
+
+// statsFunc defines a generic statistical function
+type statsFunc func(data []float64) float64
 
 func sum(data []float64) float64 {
 	sum := 0.0
@@ -22,43 +24,43 @@ func avg(data []float64) float64 {
 	return sum(data) / float64(len(data))
 }
 
-// statsFunc defines a generic statistical function
-type statsFunc func(data []float64) float64
-
 func csv2float(r io.Reader, column int) ([]float64, error) {
-	// Create the csv reader used to read in data from csv files
+	// Create the CSV Reader used to read in data from CSV files
 	cr := csv.NewReader(r)
 
-	// Adjust for a 0-based index
+	// Adjusting for 0 based index
 	column--
 
-	// Read in all the csv data
+	// Read in all CSV data
 	allData, err := cr.ReadAll()
 	if err != nil {
-		return nil, errors.Wrap(err, "cannot read data from file")
+		return nil, fmt.Errorf("cannot read data from file: %w", err)
 	}
 
 	var data []float64
 
+	// Looping through all records
 	for i, row := range allData {
 		if i == 0 {
 			continue
 		}
 
-		// checking number of columns in CSV file
+		// Checking number of columns in CSV file
 		if len(row) <= column {
-			// file does not have that many columns
-			return nil, errors.Wrapf(ErrInvalidColumn, "file has only %d columns", len(row))
+			// File does not have that many columns
+			return nil,
+				fmt.Errorf("%w: File has only %d columns", ErrInvalidColumn, len(row))
 		}
 
-		// try to convert to a float
+		// Try to convert data read into a float number
 		v, err := strconv.ParseFloat(row[column], 64)
 		if err != nil {
-			return nil, errors.Wrapf(ErrNotNumber, "%v", err)
+			return nil, fmt.Errorf("%w: %s", ErrNotNumber, err)
 		}
 
 		data = append(data, v)
 	}
 
+	// Return the slice of float64 and nil error
 	return data, nil
 }
