@@ -1,0 +1,7 @@
+goos: linux
+goarch: amd64
+pkg: github.com/nstoker/book-pp-pclag/performance/colStats
+cpu: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+BenchmarkRun-16    	      10	 124058589 ns/op	214897367 B/op	 2527092 allocs/op
+PASS
+ok  	github.com/nstoker/book-pp-pclag/performance/colStats	1.367s
